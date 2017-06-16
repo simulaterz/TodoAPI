@@ -9,9 +9,9 @@
 // getTodosList() /
 // getTodo() /
 // addTask() /
-// editTask()
+// editTask() /
 // setStatus()
-// deleteTask()
+// deleteTask() /
 
 var _ = require('lodash');
 
@@ -54,6 +54,13 @@ class Todos {
     return todo;
   };
 
+  deleteTask(id) {
+    var todo = this.getTodo(id);
+    if(!todo) return;
+
+    this.todos = this.todos.filter((todo) => todo.id.toString() !== id );
+    return todo;
+  }
 };
 
 module.exports = {Todos};
