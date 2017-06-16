@@ -6,12 +6,14 @@
 // }]
 
 /* Task in Todos */
-// getTodosList()
-// getTodo()
-// addTask()
+// getTodosList() /
+// getTodo() /
+// addTask() /
 // editTask()
 // setStatus()
 // deleteTask()
+
+var _ = require('lodash');
 
 class Todos {
   constructor() {
@@ -23,20 +25,35 @@ class Todos {
   };
 
   getTodo(id) {
-    return this.todos.filter((todo) => todo.id.toString() === id );
+    return this.todos.filter((todo) => todo.id.toString() === id )[0];
   };
 
-  addTask(subj, detail) {
-    var task = {
+  addTask(task) {
+    var obj = {
       id: this.todos.length + 1,
-      subj: subj,
-      detail: detail,
+      subj: task.subj,
+      detail: task.detail,
       status: "pending"
     };
-    this.todos.push(task);
-    return task;
+    this.todos.push(obj);
+    return obj;
   };
 
-}
+  editTask(id, task) {
+    var arrayPointer = id-1;
+    var todo = this.getTodo(id);
+    if(!todo) return;
+
+    if(_.isUndefined(task.subj)) task.subj = "";
+    if(_.isUndefined(task.detail)) task.detail = "";
+
+    todo.subj = task.subj;
+    todo.detail = task.detail;
+
+    this.todos[arrayPointer] = todo;
+    return todo;
+  };
+
+};
 
 module.exports = {Todos};

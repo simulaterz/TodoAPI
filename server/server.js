@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var _ = require('lodash');
 
 var {Todos} = require('./todos');
 
@@ -9,27 +10,43 @@ var todos = new Todos();
 
 app.use(bodyParser.json());
 
-// /
+//
 app.get('/', (req, res) => {
   res.send("TODO API");
 });
 
-// /getTodosList
+// getTodosList
 app.get('/gettodoslist', (req, res) => {
   var list = todos.getTodosList();
   res.send(list);
 });
 
-// /getTodo
+// getTodo
 app.get('/gettodo/:id', (req, res) => {
   var todo = todos.getTodo(req.params.id);
   res.send(todo);
 });
 
-// /addTask
+// addTask
 app.post('/addtask', (req, res) => {
-  var task = todos.addTask(req.body.subj, req.body.detail);
-  res.send(task);
+  var task = _.pick(req.body, ['subj', 'detail']);
+  if(_.isUndefined(task.subj) || _.isUndefined(task.detail)) {
+    return res.status(400).send();
+  }
+
+  var addtask = todos.addTask(task);
+  res.send(addtask);
+});
+
+// editTask:id
+app.patch('/edittask/:id', (req, res) => {
+  var id = req.params.id;
+  var task = _.pick(req.body, ['subj', 'detail']);
+
+  var edittask = todos.editTask(id, task);
+  if(!edittask) return res.status(404).send();
+  
+  res.send(edittask);
 });
 
 app.listen(port, () => {
