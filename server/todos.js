@@ -6,12 +6,12 @@
 // }]
 
 /* Task in Todos */
-// getTodosList() /
-// getTodo() /
-// addTask() /
-// editTask() /
-// setStatus()
-// deleteTask() /
+// getTodosList()
+// getTodo()
+// addTask()
+// editTask()
+// changeStatus()
+// deleteTask()
 
 var _ = require('lodash');
 
@@ -60,7 +60,22 @@ class Todos {
 
     this.todos = this.todos.filter((todo) => todo.id.toString() !== id );
     return todo;
-  }
+  };
+
+  changeStatus(id) {
+    var arrayPointer = id-1;
+    var todo = this.getTodo(id);
+    if(!todo) return;
+
+    if(todo.status === "pending") {
+      todo.status = "done";
+    } else if (todo.status = "done") {
+      todo.status = "pending";
+    }
+
+    this.todos[arrayPointer] = todo;
+    return todo;
+  };
 };
 
 module.exports = {Todos};

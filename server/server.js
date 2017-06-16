@@ -4,8 +4,8 @@ var _ = require('lodash');
 
 var {Todos} = require('./todos');
 
-var port = process.env.PORT || 3000;
 var app = express();
+var port = process.env.PORT || 3000;
 var todos = new Todos();
 
 app.use(bodyParser.json());
@@ -49,6 +49,16 @@ app.patch('/edittask/:id', (req, res) => {
   if(!edittask) return res.status(404).send();
 
   res.send(edittask);
+});
+
+// changestatus/:id
+app.patch('/changestatus/:id', (req, res) => {
+  var id = req.params.id;
+
+  var changestatus = todos.changeStatus(id);
+  if(!changestatus) return res.status(404).send();
+
+  res.send(changestatus);
 });
 
 // deleteTask/:id
