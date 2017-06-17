@@ -24,7 +24,7 @@ Simple API 'to do' task list
      * Method: `GET`
      * URL Params: `id=[integer]`
      * Success Response: 
-           ```
+        ```
            Code: 200 
            Content: {
                        id: 1
@@ -32,7 +32,7 @@ Simple API 'to do' task list
                        detail: 'clean the room in the morning',
                        status: 'pending'
                      }
-           ```
+        ```
       
   3. **Add a task to the list**
      * Url: `/addtask`
@@ -106,3 +106,11 @@ Simple API 'to do' task list
                     status: 'pending'
                   }
         ```
+        
+## How to set up web API (Ubuntu)
+  * เครื่องที่จะทำการติดตั้ง ต้องทำการติดตั้งโปรแกรม Nodejs ก่อน
+  * นำ source code ไปใส่ใน directory ใดๆที่สร้างขึ้นมาใหม่
+  * ทำการกำหนดค่า variable PORT ในระบบปฏิบัติการที่ใช้ ตัวอย่างเช่น ubuntu ใช้คำสั่ง export PORT=หมายเลขพอร์ตที่ต้องการ
+  * เข้า directory ของ web api ผ่านทาง Terminal
+  * รันคำสั่ง npm start
+  * สามารถทดสอบหน้า Wep api ได้โดยผ่าน url = localhost:PORT/ หรือ localhost:3000/ (default PORT)
