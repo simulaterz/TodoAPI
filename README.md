@@ -2,7 +2,7 @@
 Simple API 'to do' task list 
 > Demo API Url: https://todo2ch.herokuapp.com
 
-## API doc
+## API document
   1. **View all item in the list**
         * Url: `/gettodoslist`
         * Method: `GET`
