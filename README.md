@@ -112,5 +112,6 @@ Simple API 'to do' task list
   * นำ source code ไปใส่ใน directory ใดๆที่สร้างขึ้นมาใหม่
   * ทำการกำหนดค่า variable PORT ในระบบปฏิบัติการที่ใช้ ตัวอย่างเช่น ubuntu ใช้คำสั่ง export PORT=หมายเลขพอร์ตที่ต้องการ
   * เข้า directory ของ web api ผ่านทาง Terminal
+  * รันคำสั่ง npm install
   * รันคำสั่ง npm start
   * สามารถทดสอบหน้า Wep api ได้โดยผ่าน url = localhost:PORT/ หรือ localhost:3000/ (default PORT=3000)
