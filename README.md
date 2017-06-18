@@ -11,13 +11,14 @@ Simple API 'to do' task list
            Code: 200 
            Content: [
                      {
-                       id: 1
-                       subj: 'Clean the room',
-                       detail: 'clean the room in the morning',
-                       status: 'pending'
+                       id: [integer]
+                       subj: [string],
+                       detail: [string],
+                       status: [string]
                      }
                     ]
            ```
+        * Error  Response: `Code: 404 Not Found`
 
   2. **View a single task in the list**
      * Url: `/gettodo/:id`
@@ -27,12 +28,13 @@ Simple API 'to do' task list
         ```
            Code: 200 
            Content: {
-                       id: 1
-                       subj: 'Clean the room',
-                       detail: 'clean the room in the morning',
-                       status: 'pending'
+                       id: [integer]
+                       subj: [string],
+                       detail: [string],
+                       status: [string]
                      }
         ```
+     * Error  Response: `Code: 404 Not Found`
       
   3. **Add a task to the list**
      * Url: `/addtask`
@@ -40,20 +42,21 @@ Simple API 'to do' task list
      * Data Params: 
         ```
           {
-            "subj": "Clean the room",
-            "detail": "clean the room in the morning"
+            "subj": [string],
+            "detail": [string]
           }
         ```
      * Success Response: 
         ```
         Code: 200 
         Content: {
-                    id: 1
-                    subj: 'Clean the room',
-                    detail: 'clean the room in the morning',
-                    status: 'pending'
+                    id: [integer]
+                    subj: [string],
+                    detail: [string],
+                    status: [string]
                   }
         ```
+     * Error  Response: `Code: 400 Bad Request`
         
   4. **Edit existing task**
      * Url: `/edittask/:id`
@@ -62,20 +65,21 @@ Simple API 'to do' task list
      * Data Params: 
         ```
           {
-            "subj": "Edit Clean",
-            "detail": "clean the room in the morning"
+            "subj": [string],
+            "detail": [string]
           }
         ```
      * Success Response: 
         ```
         Code: 200 
         Content: {
-                    id: 1
-                    subj: 'Edit Clean',
-                    detail: 'clean the room in the morning',
-                    status: 'pending'
+                    id: [integer]
+                    subj: [string],
+                    detail: [string],
+                    status: [string]
                   }
         ```
+     * Error  Response: `Code: 404 Not Found`
         
   5. **Set the task status "Pending" or "Done"**
      * Url: `/changestatus/:id`
@@ -85,12 +89,13 @@ Simple API 'to do' task list
         ```
         Code: 200 
         Content: {
-                    id: 1
-                    subj: Clean the room',
-                    detail: 'clean the room in the morning',
-                    status: 'done'
+                    id: [integer]
+                    subj: [string],
+                    detail: [string],
+                    status: [string]
                   }
         ```
+     * Error  Response: `Code: 404 Not Found`
         
   6. **Delete a task form the list**
      * Url: `/deletetask/:id`
@@ -100,12 +105,13 @@ Simple API 'to do' task list
         ```
         Code: 200 
         Content: {
-                    id: 1
-                    subj: Clean the room',
-                    detail: 'clean the room in the morning',
-                    status: 'pending'
+                    id: [integer]
+                    subj: [string],
+                    detail: [string],
+                    status: [string]
                   }
         ```
+     * Error  Response: `Code: 404 Not Found`
         
 ## How to set up web API (Ubuntu)
   * เครื่องที่จะทำการติดตั้ง ต้องทำการติดตั้งโปรแกรม Nodejs ก่อน
